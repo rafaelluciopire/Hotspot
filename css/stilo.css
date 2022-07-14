@@ -1,0 +1,72 @@
+body,
+html {
+  background-image: linear-gradient(#292351,#6fc8b8,#292351 );
+  font-family: 'Hind', sans-serif;
+  color: #fff;
+}
+label{
+    font-weight: bold;
+    color: #fff;
+}
+
+body {
+  padding-bottom: 100px;
+}
+h1{
+    text-align: center;
+}
+tr{
+    width: 100px;
+    border:1px solid #484177; 
+}
+
+#login{
+    width: 350px;
+    background-color:#292351;
+    margin-top: 80px;
+    border-radius: 30px;
+    border: 1px solid #C0C0C0;
+    padding: 15px;
+    -webkit-box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+    box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+}
+
+#logo{
+    background-color:transparent;
+    
+    }
+#bem_vindo{
+    margin-top: 100px;
+    text-align: center;
+}
+#botao_entrar{
+    margin-top: 7px;
+    text-align: right;
+
+}
+#cadastro{
+    width: 400px;
+    background-color:#292351;
+    margin-top: 80px;
+    border-radius: 30px;
+    border: 1px solid #C0C0C0;
+    padding: 15px;
+    -webkit-box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+    box-shadow: 13px 6px 16px 12px rgba(0,0,0,0.75);
+
+}
+
+#titulo{
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+.info{
+    padding: 10px;
+    text-align: justify;
+}
+.rodape{
+    text-align: center;
+}

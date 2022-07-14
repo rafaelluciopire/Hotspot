@@ -1,0 +1,83 @@
+<html>
+<head>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>KLINK FIBRA - STATUS</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/stilo.css">
+<script>
+
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+</script>
+    
+</head>
+<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
+    <div class="container" id="login">
+            <center>
+            <img src="img/logo.png" id=logo>
+            </center>
+                    $(if login-by == 'trial')
+                    <h1>Olá Navegante, contrate a KLINK <a href="https://central.klink.hubsoft.com.br/central/prospecto/etapa_1">clique aqui</a></h1>
+                $(elif login-by != 'mac')
+                    <h1>OLÁ, $(username)!</h1>
+                $(endif)                
+
+                <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                    <table>
+                        <tr><td>Seu IP é</td><td>$(ip)</td></tr>
+                        <tr><td>Bytes Enviados / Recebidos</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+                    $(if session-time-left)
+                        <tr><td>Tempo de LOGIN / Tempo Restante</td><td>$(uptime) / $(session-time-left)</td></tr>
+                    $(else)
+                        <tr><td>Tempo Online</td><td>$(uptime)</td></tr>
+                    $(endif)
+                    $(if blocked == 'yes')
+                        <tr><td>Status</td><td>
+                    <a href="$(link-advert)" target="hotspot_advert">Advertisement required</a></td>
+                        </tr>
+                    $(elif refresh-timeout)
+                        <tr><td>Tempo de Atualização</td><td>$(refresh-timeout)</td></tr>
+                    $(endif)
+                        </table>
+                    $(if login-by-mac != 'yes')
+                    <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+                    <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+                    <!-- end of user manager link -->
+                    <div class="botao" id="botao_entrar">
+                    <input type="submit" class="btn btn-sm btn-success" value="SAIR">
+                    </div>
+                    $(endif)
+                </form>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="https://wa.me/3335087588?text=Olá KLINK! Vim através do Hotspot do KLINK FREE e quero saber sobre os planos!" 
+          onmouseover="this.style.color='#292351'"
+          onmouseout="this.style.color='white'"
+        style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;
+          background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;
+            font-size:30px;box-shadow: 3px 5px 4px black;
+          z-index:1000;" target="_blank"> 
+          <i style="margin-top:16px" class="fa fa-whatsapp"></i>
+        </a>
+</body>
+</html>
