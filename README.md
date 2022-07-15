@@ -1,2 +1,2 @@
-# site
+# Hotspot
 O site aberto
