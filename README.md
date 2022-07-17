@@ -1,2 +1,2 @@
 # Hotspot
-O site aberto
+Repositório de um sistema de hotspot para rodar em dispositivos Microtik
